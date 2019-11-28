@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.segundoparcialsqlite.Class.ConexionSQLiteHelper;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btnInsertar,btnActulizar,btnBuscar,btnMostrar;
@@ -14,6 +16,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ConexionSQLiteHelper conn =  new ConexionSQLiteHelper(this,"bd_persona",null,1);
         //Instanciacion del boton
         btnInsertar =(Button) findViewById(R.id.btnInsertMain);
         btnActulizar=(Button) findViewById(R.id.btnActulizarMain);
@@ -30,7 +33,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnInsertMain:{
-                Toast.makeText(getApplicationContext(),"Insertar",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(this,Insert.class);
                 startActivity(intent);
             };break;
@@ -38,7 +40,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(getApplicationContext(),"Actualizar",Toast.LENGTH_SHORT).show();
             };break;
             case R.id.btnBuscarMain:{
-                Toast.makeText(getApplicationContext(),"Buscar",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this,Buscar.class);
+                startActivity(intent);
             };break;
             case R.id.btnMostrarMain:{
                 Toast.makeText(getApplicationContext(),"Mostrar",Toast.LENGTH_SHORT).show();
