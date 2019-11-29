@@ -1,5 +1,6 @@
 package com.example.segundoparcialsqlite;
 
+import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -42,10 +43,24 @@ public class Buscar extends AppCompatActivity implements View.OnClickListener{
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnActulizar:{
-                Toast.makeText(getApplicationContext(),"Hiciste click en el boton Actlizar ", Toast.LENGTH_SHORT).show();
+                String[] args= {campoCI.getText().toString()};
+                ContentValues content = new ContentValues();
+                content.put(Utilidades.CAMPO_NOMBRE,campoNombre.getText().toString());
+                content.put(Utilidades.CAMPO_APELLIDO,campoApellido.getText().toString());
+                content.put(Utilidades.CAMPO_CU,campoCI.getText().toString());
+                content.put(Utilidades.CAMPO_LATITUD,campoLatitud.getText().toString());
+                content.put(Utilidades.CAMPO_LONGITUD,campoLongitud.getText().toString());
+                SQLiteDatabase db = conn.getWritableDatabase();
+                db.update(Utilidades.TABLA_USUARIO,content,Utilidades.CAMPO_CU+"=?",args);
+                Toast.makeText(getApplicationContext(),"La tabla se actualizo ", Toast.LENGTH_SHORT).show();
             };break;
             case R.id.btnEliminar:{
-                Toast.makeText(getApplicationContext(),"Hiciste click en el boton Eliminar", Toast.LENGTH_SHORT).show();
+                String[] argumento= {campoCI.getText().toString()};
+                SQLiteDatabase db = conn.getWritableDatabase();
+                db.delete(Utilidades.TABLA_USUARIO,Utilidades.CAMPO_CU+" = ?",argumento);
+                db.close();
+                limpiar();
+                Toast.makeText(getApplicationContext(),"Se elimino el archibo", Toast.LENGTH_SHORT).show();
             };break;
             case R.id.btnCIBuscadorBuscar:{
                 //Toast.makeText(getApplicationContext(),"Hiciste click buscar",Toast.LENGTH_SHORT).show();
