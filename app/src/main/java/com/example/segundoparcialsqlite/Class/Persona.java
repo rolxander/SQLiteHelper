@@ -38,6 +38,22 @@ public class Persona {
         return longitud;
     }
 
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public void setCarnet_Identidad(String carnet_Identidad) {
+        this.carnet_Identidad = carnet_Identidad;
+    }
+
+    public void setLatitud(String latitud) {
+        this.latitud = latitud;
+    }
+
+    public void setLongitud(String longitud) {
+        this.longitud = longitud;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
