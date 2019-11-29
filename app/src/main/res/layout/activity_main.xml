@@ -19,12 +19,6 @@
             android:text="@string/InsertarR" />
 
         <Button
-            android:id="@+id/btnActulizarMain"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/InsertarA" />
-
-        <Button
             android:id="@+id/btnBuscarMain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -35,6 +29,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/InsertarM" />
+        <Button
+            android:id="@+id/btnActulizarMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/InsertarA" />
     </LinearLayout>
 
 

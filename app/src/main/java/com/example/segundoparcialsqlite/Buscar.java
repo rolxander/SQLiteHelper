@@ -72,6 +72,7 @@ public class Buscar extends AppCompatActivity implements View.OnClickListener{
             campoLatitud.setText(latitud);
             campoLongitud.setText(longitud);
             cursor.close();
+            db.close();
         }catch (Exception e){
             Toast.makeText(getApplicationContext(),"El documento no existe", Toast.LENGTH_SHORT).show();
             limpiar();

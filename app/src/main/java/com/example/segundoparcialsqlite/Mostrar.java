@@ -4,6 +4,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.example.segundoparcialsqlite.Class.ConexionSQLiteHelper;
@@ -25,6 +26,8 @@ public class Mostrar extends AppCompatActivity {
         listViewPersonas = (ListView) findViewById(R.id.ListaViewPersonas);
         conn =  new ConexionSQLiteHelper(this,"bd_persona",null,1);
         consultarListaPersonas();
+        ArrayAdapter adaptador = new ArrayAdapter(this,android.R.layout.simple_expandable_list_item_1,listaInformacion);
+        listViewPersonas.setAdapter(adaptador);
     }
 
     private void consultarListaPersonas() {
@@ -39,8 +42,18 @@ public class Mostrar extends AppCompatActivity {
             persona.setCarnet_Identidad(cursor.getString(2));
             persona.setLatitud(cursor.getString(3));
             persona.setLongitud(cursor.getString(4));
+            listaPersonas.add(persona);
+        }
+        obtenerLista();
+        cursor.close();
+        db.close();
 
+    }
 
+    private void obtenerLista() {
+        listaInformacion = new ArrayList<>();
+        for(int i = 0; i<listaPersonas.size();i++){
+            listaInformacion.add(listaPersonas.get(i).getNombre() + " - " +listaPersonas.get(i).getCarnet_Identidad() );
         }
 
     }

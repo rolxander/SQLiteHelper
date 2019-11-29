@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">SegundoParcialSQLite</string>
     <string name="InsertarR">Insertar Registro</string>
-    <string name="InsertarA">Actulizar Registro</string>
+    <string name="InsertarA">Eliminar Todo</string>
     <string name="InsertarB">Buscar Registro</string>
     <string name="InsertarM">Mostrar Registros</string>
 </resources>
